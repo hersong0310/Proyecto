@@ -1,0 +1,286 @@
+/* ===========================
+   Diseño moderno y accesible
+   =========================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root{
+  --bg: #0f1226;
+  --bg-2: #121639;
+  --text: #e8eaf6;
+  --muted: #b7bde1;
+
+  --primary-1: #7c4dff;
+  --primary-2: #4361ee;
+  --accent-1: #f72585;
+  --accent-2: #4cc9f0;
+  --success: #2ec4b6;
+  --warning: #ffb703;
+
+  --card-bg: rgba(255,255,255,0.06);
+  --card-border: rgba(255,255,255,0.18);
+  --input-bg: rgba(255,255,255,0.08);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.18);
+  --shadow-md: 0 8px 24px rgba(0,0,0,0.24);
+  --shadow-lg: 0 16px 40px rgba(0,0,0,0.28);
+
+  --focus-ring: 0 0 0 3px rgba(67,97,238,.35);
+  --transition: 180ms cubic-bezier(.2,.6,.2,1);
+}
+
+@media (prefers-color-scheme: light){
+  :root{
+    --bg: #eef2ff;
+    --bg-2: #e9ecff;
+    --text: #0f1020;
+    --muted: #525b8e;
+
+    --card-bg: rgba(255,255,255,0.75);
+    --card-border: rgba(15,16,32,0.08);
+    --input-bg: rgba(15,16,32,0.04);
+
+    --shadow-sm: 0 4px 12px rgba(17, 24, 39, 0.06);
+    --shadow-md: 0 10px 24px rgba(17, 24, 39, 0.08);
+    --shadow-lg: 0 18px 44px rgba(17, 24, 39, 0.12);
+    --focus-ring: 0 0 0 3px rgba(124,77,255,.25);
+  }
+}
+
+/* Fondo con gradiente animado suave */
+body{
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(1200px 800px at 10% -10%, rgba(124,77,255,.25), transparent 60%),
+    radial-gradient(900px 700px at 110% 10%, rgba(76,201,240,.20), transparent 60%),
+    linear-gradient(180deg, var(--bg), var(--bg-2));
+  color: var(--text);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Contenedor principal */
+.App{
+  max-width: 980px;
+  margin: 48px auto;
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(12px);
+  animation: fadeIn 420ms ease-out both;
+}
+
+.App h1, .App h2{
+  margin: 0 0 16px;
+  line-height: 1.1;
+  letter-spacing: .3px;
+}
+.App h1{
+  font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
+  background: linear-gradient(90deg, var(--text), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.App p.lead{
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* Sección del plan */
+.plan-clases{
+  margin-top: 24px;
+  display: grid;
+  gap: 16px;
+}
+
+/* Tarjeta formulario (glass) */
+.formulario{
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 22px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+.formulario:hover{
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(124,77,255,.35);
+}
+
+.formulario label{
+  display: block;
+  font-weight: 600;
+  margin: 8px 0 6px;
+}
+
+.formulario input,
+.formulario textarea,
+.formulario select{
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  color: var(--text);
+  background: var(--input-bg);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition), transform var(--transition);
+}
+.formulario textarea{ min-height: 110px; resize: vertical; }
+
+.formulario input::placeholder,
+.formulario textarea::placeholder{ color: color-mix(in oklab, var(--muted), transparent 20%); }
+
+.formulario input:focus,
+.formulario textarea:focus,
+.formulario select:focus{
+  border-color: color-mix(in oklab, var(--primary-2), white 10%);
+  box-shadow: var(--focus-ring);
+  transform: translateY(-1px);
+}
+
+/* Botón primario con degradado */
+.formulario button,
+.button-primary{
+  background: linear-gradient(135deg, var(--primary-2), var(--primary-1));
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: .2px;
+  box-shadow: 0 8px 24px rgba(67,97,238,.35);
+  transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+  will-change: transform;
+}
+.formulario button:hover,
+.button-primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 34px rgba(67,97,238,.45);
+  filter: saturate(1.05);
+}
+.formulario button:active,
+.button-primary:active{
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(67,97,238,.35);
+}
+.button-primary:disabled{
+  opacity: .7; cursor: not-allowed; filter: grayscale(.1);
+}
+
+/* Botón peligro (eliminar) */
+.clase-item button,
+.button-danger{
+  background: linear-gradient(135deg, var(--accent-1), #d81b60);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 8px 22px rgba(247,37,133,.35);
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+}
+.clase-item button:hover,
+.button-danger:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(247,37,133,.45);
+}
+.clase-item button:active,
+.button-danger:active{
+  transform: translateY(0);
+}
+
+/* Tarjetas de clase */
+.clase-item{
+  border: 1px solid var(--card-border);
+  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+  padding: 18px;
+  margin-bottom: 10px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.clase-item::after{
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(700px 200px at -20% -40%, rgba(124,77,255,.18), transparent 60%);
+  pointer-events: none;
+}
+.clase-item:hover{
+  transform: translateY(-2px);
+  border-color: rgba(76,201,240,.35);
+  box-shadow: var(--shadow-md);
+}
+.clase-item h3{
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+.clase-item p{
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+/* Pequeños badges opcionales dentro de .clase-item */
+.badge{
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--accent-2), white 10%);
+  color: #001018;
+  border: 1px solid color-mix(in oklab, var(--accent-2), black 15%);
+}
+
+/* Estado vacío elegante (si lo usas) */
+.empty-state{
+  padding: 28px;
+  text-align: center;
+  border: 1px dashed color-mix(in oklab, var(--muted), transparent 50%);
+  border-radius: var(--radius-md);
+  color: var(--muted);
+}
+
+/* Layout responsivo */
+@media (max-width: 720px){
+  .App{ margin: 28px 16px; padding: 18px; }
+  .formulario{ padding: 16px; }
+  .formulario button{ width: 100%; }
+}
+
+/* Animaciones sutiles */
+@keyframes fadeIn{
+  from{ opacity: 0; transform: translateY(6px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* Estados de accesibilidad */
+*:focus-visible{
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: 10px;
+}
+
+/* Utilidades opcionales */
+.row{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+}
+.col-6{ grid-column: span 6; }
+.col-12{ grid-column: span 12; }
+@media (max-width: 720px){
+  .col-6{ grid-column: span 12; }
+}
+
