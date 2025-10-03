@@ -1,16 +1,47 @@
-# React + Vite
+# plan-de-clases-app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Breve descripción: Aplicación React + Vite de ejemplo para gestionar un plan de clases sencillo (crear, listar y eliminar actividades).
 
-Currently, two official plugins are available:
+## Requisitos
+- Node.js 20 o superior
+- npm 10 o superior
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación y ejecución
+```bash
+# 1. Instala dependencias
+npm install
 
-## React Compiler
+# 2. Ejecuta en desarrollo
+npm run dev
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# 3. Compila para producción
+npm run build
 
-## Expanding the ESLint configuration
+# 4. Vista previa de producción
+npm run preview
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Estructura del proyecto
+```
+plan-de-clases-app/
+├─ index.html
+├─ package.json
+├─ vite.config.js
+├─ .gitignore
+├─ README.md
+├─ scripts/
+│  └─ generate-commit-history.sh
+└─ src/
+   ├─ App.jsx
+   ├─ main.jsx
+   ├─ index.css
+   └─ assets/
+```
+
+## Integrantes
+- Nombre 1 Herson Renato Galindo 
+- Nombre 2 Maria de Los Angeles Herrera
+- Nombre 3 Donald Danilo Rodriguez 
+- Nombre 4 Lesly Yadira Hernandez 
+- Nombre 5 Sandy Gabriela Asencio  
+
